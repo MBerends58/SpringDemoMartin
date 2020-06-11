@@ -10,11 +10,11 @@ pipeline {
         stage('Build') {
             steps {
                 echo 'Building..'
-		checkout([$class: 'GitSCM', branches: [[name: '*/YOUR_BRANCH_HERE']],
+		checkout([$class: 'GitSCM', branches: [[name: '*/master']],
 			doGenerateSubmoduleConfigurations: false,
 			extensions: [], submoduleCfg: [],
 			userRemoteConfigs: [[credentialsId: 'Github',
-			url: 'https://github.com/YOUR_GITHUB_HERE/YOUR_PROJECT_HERE.git']]])
+			url: 'https://github.com/MBerends58/SpringDemoMartin.git']]])
 		sh "mvn clean package -DskipTests"
             }
         }
